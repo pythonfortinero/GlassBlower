@@ -23,40 +23,76 @@ Fist steps:
 Structure Tree of GlassBlower:
 
 glassBlower/
+
 ├── app
+
 │   ├── forms
+
 │   │   └── __init__.py
+
 │   ├── __init__.py
+
 │   ├── models
+
 │   │   ├── __init__.py
+
 │   ├── restful
+
 │   │   └── __init__.py
+
 │   ├── templates
+
 │   │   ├── about.html
+
 │   │   ├── base.html
+
 │   │   └── index.html
+
 │   └── views
+
 │       ├── about.py
+
 │       ├── index.py
+
 │       ├── __init__.py
+
 ├── config
+
 │   ├── config.py
+
 │   ├── __init__.py
+
 │   ├── routes.py
+
 ├── glassblower.py
+
 ├── __init__.py
+
 ├── manage.py
+
 ├── requirements.txt
+
 ├── static
+
 │   ├── images
+
 │   │   └── flask.png
+
 │   ├── javascripts
+
 │   │   └── bootstrap.min.js
+
 │   └── stylesheets
+
 │       └── bootstrap.min.css
+
 ├── test
+
 ├── tmp
+
 └── wsgi.py
+
+
 
 GlassBlower File creator:
 
