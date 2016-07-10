@@ -24,7 +24,7 @@ Structure Tree of GlassBlower:
 
 glassBlower/
 
-├── app \n
+├── app <br />
 │   ├── forms
 │   ├── models
 │   ├── restful
