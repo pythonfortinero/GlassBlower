@@ -3,7 +3,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("blow")
 parser.add_argument("option")
-parser.add_argument("newFile")
+parser.add_argument("--newFile")
 args = parser.parse_args()
 
 currentPath = os.getcwd()
