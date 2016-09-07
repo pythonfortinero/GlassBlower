@@ -2,7 +2,7 @@ from flask.views import MethodView
 from flask import render_template, request, url_for, redirect, flash
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from manage import db
-from app.models import User
+from app.models import User, pwd_context
 
 class UserRegister(MethodView): 
 
@@ -25,18 +25,18 @@ class UserRegister(MethodView):
 class UserLogin(MethodView): 
 
     def get(self): 
-        return render_template("login.html") 
+        return render_template("login.html")
 
     def post(self): 
         username = request.form['username']
         password = request.form['password']
-        registered_user = User.query.filter_by(username=username,password=password).first()
-        if registered_user is None:
-            flash('Username or Password is invalid' , 'error')
-            return render_template('login.html')
-        login_user(registered_user)
-        flash('Logged in successfully')
-        return render_template('index.html')
+        user = User.query.filter_by(username=username).first()
+        if user and pwd_context.verify(password, user.password):
+            login_user(user)
+            flash('Logged in successfully')
+            return redirect(url_for('index'))
+        flash('Username or Password is invalid' , 'error')
+        return render_template('login.html')
 
     def put(self): 
         pass 

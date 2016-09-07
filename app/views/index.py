@@ -4,7 +4,6 @@ from flask.ext.login import login_required
 
 class Index(MethodView):
 
-    @login_required
     def get(self):
         return render_template('index.html')
 
