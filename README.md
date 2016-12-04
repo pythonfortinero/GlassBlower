@@ -1,16 +1,16 @@
 GlassBlower 
 ===========
 
-The Best Flask Boilerplate!!
+##The Best Flask Boilerplate!!
 
-GlassBlower is the implementation of a similar structure to Rails
+###### GlassBlower is an implementation based on the Rails style
 
 Fist steps:
 
 ```
 $ virtualenv venv  #in your current directory, to generate de virtual envairoment
 
-$ source venv/bin.activate
+$ source venv/bin/activate
 
 $ pip install -r requirements.txt #this file contain Flask-libs
 
@@ -27,13 +27,13 @@ $ python manage.py db upgrade
 $ python manage.py runserver 
 ```
 
-1. Config database and enviroment work
+1. Config database and enviroment work: <br>
 config/config.py 
  
-2. Add the routes in:
+2. Add the routes in: <br>
 config/routes.py 
 
-#Structure Tree of GlassBlower:
+## Structure Tree of GlassBlower:
 
 ```
 glassBlower/
@@ -63,11 +63,11 @@ glassBlower/
 ```
 
 
-#GlassBlower File creator:
+## GlassBlower File creator:
 
-You can create views, models and login
+###### You can create views, models and login
 
-* Create view example:
+* *Create view example*:
 
 ```
 $ python glassblower.py blow view whatever
@@ -82,7 +82,7 @@ and modify:
 you need to update route.py for routing
 ```
 
-* Create model example:
+* *Create model example*:
 
 ```
 $ python glassblower blow model whatever
@@ -99,7 +99,7 @@ $ python manage.py db migrate
 $ python manage.py db upgrade
 ```
 
-* Create login example:
+* *Create login example*:
 
 ```
 #In GlassBlower is very simple make a login
