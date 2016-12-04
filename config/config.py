@@ -8,6 +8,7 @@ class BaseConfig(object):
     #SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.getcwd() + "/yourdatabase.db"
     #SQLALCHEMY_DATABASE_URI = "mysql+pymysql://username:password@localhost/yourdatabase"
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True

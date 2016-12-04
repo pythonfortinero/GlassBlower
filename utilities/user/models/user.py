@@ -1,4 +1,4 @@
-from manage import app, db 
+from app import app, db 
 from sqlalchemy import ForeignKey
 from passlib.apps import custom_app_context as pwd_context
 from sqlalchemy.orm import relationship 
