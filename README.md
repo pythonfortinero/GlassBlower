@@ -66,12 +66,12 @@ glassBlower/
 
 ## GlassBlower File creator:
 
-###### You can create views, models and login
+###### You can create views, models, api, login and scaffolding
 
 * *Create view example*:
 
 ```
-$ python glassblower.py blow view whatever
+$ python glassblower.py blow view --newFile whatever
 
 this command make:
   app/views/whatever.py
@@ -86,7 +86,7 @@ you need to update route.py for routing
 * *Create model example*:
 
 ```
-$ python glassblower.py blow model whatever
+$ python glassblower.py blow model --newFile whatever
 
 this command make:
 app/models/whatever.py
@@ -103,14 +103,38 @@ $ python manage.py db upgrade
 * *Create login example*:
 
 ```
-#In GlassBlower is very simple make a login
+In GlassBlower is very simple make a login
 
 $ python glassblower.py blow login
 
-#you need to do
+You need to do after:
 
 $ python manage.py db migrate
 $ python manage.py db upgrade
 ```
 
+* *Create api example*:
+
+```
+This command make rest api
+
+$ python glassblower.py blow api --newFile whatever
+
+
+You need to do after modify models file:
+
+$ python manage.py db migrate
+$ python manage.py db upgrade
+```
+
+* *Create scaffold example*:
+
+```
+$ python glassblower.py blow scaffold --newFile whatever
+
+You need to do after modify models file:
+
+$ python manage.py db migrate
+$ python manage.py db upgrade
+```
 
