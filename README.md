@@ -1,3 +1,8 @@
+GlassBlower 
+===========
+
+The Best Flask Boilerplate!!
+
 GlassBlower is the implementation of a similar structure to Rails
 
 Fist steps:
