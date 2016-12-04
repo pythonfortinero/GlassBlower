@@ -1,0 +1,4 @@
+special-vendored-path/* linguist-vendored
+app/config/* linguist-vendored=false
+app/templates/* linguist-vendored=false
+
