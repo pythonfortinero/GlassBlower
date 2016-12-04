@@ -7,23 +7,31 @@ GlassBlower is the implementation of a similar structure to Rails
 
 Fist steps:
 
-1 $ virtualenv venv  #in your current directory, to generate de virtual envairoment
+'''
+$ virtualenv venv  #in your current directory, to generate de virtual envairoment
 
-2 $ source venv/bin.activate
+$ source venv/bin.activate
 
-3 $ pip install -r requirements.txt #this file contain Flask-libs
+$ pip install -r requirements.txt #this file contain Flask-libs
 
-4 $ python manage.py db init #(optional)start database
+#(optional)start database
+$ python manage.py db init 
 
-5 $ python manage.py db migrate #(require 4) first migrate
+#(require 4) first migrate
+$ python manage.py db migrate 
 
-6 $ python manage.py db upgrade #(require 5) update database
+#(require 5) update database
+$ python manage.py db upgrade 
 
-7 $ python manage.py runserver #for run the server, is like django manage.py
+#for run the server, is like django manage.py
+$ python manage.py runserver 
+'''
 
-8 config/config.py #config database and enviroment work
+1. #config database and enviroment work
+config/config.py 
  
-9 config/routes.py #in this file add the routes
+2. #add the routes in:
+config/routes.py 
 
 Structure Tree of GlassBlower:
 
