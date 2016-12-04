@@ -5,30 +5,11 @@ parser.add_argument("blow")
 parser.add_argument("option")
 parser.add_argument("--newFile")
 args = parser.parse_args()
-
 currentPath = os.getcwd()
-if args.blow == "blow" and args.option == 'view':
-    fileDir = os.path.join(currentPath, 'app', 'views', args.newFile.lower() + '.py')
-    with open(fileDir,'w') as af:
-        af.write('from flask.views import MethodView \n')
-        af.write('from flask import render_template \n')
-        af.write('\n')
-        af.write('class %s(MethodView): \n' % args.newFile.capitalize())
-        af.write('\n')
-        af.write('    def get(self): \n')
-        af.write('        return render_template("%s.html") \n' % args.newFile.lower())
-        af.write('\n')
-        af.write('    def post(self): \n')
-        af.write('        pass \n')
-        af.write('\n')
-        af.write('    def put(self): \n')
-        af.write('        pass \n')
-        af.write('\n')
-        af.write('    def delete(): \n')
-        af.write('        pass \n')
-    initDir = os.path.join(currentPath, 'app', 'views', '__init__.py')
-    with open(initDir,'a') as af:
-        af.write('\nfrom %s import * \n' % args.newFile.lower())
+
+
+def make_template():
+    htmlDir = False
     htmlDir = os.path.join(currentPath, 'app', 'templates', args.newFile.lower() + '.html')
     with open(htmlDir,'w') as af:
         af.write('{% extends "base.html" %} \n')
@@ -37,11 +18,46 @@ if args.blow == "blow" and args.option == 'view':
         af.write('<h1 class="text-center">%s</h1> \n' % args.newFile.upper())
         af.write('\n')
         af.write('{% endblock %} \n')
-    print "Updated Directories"
+    return htmlDir
+
+
+def make_view(api=False):
+    fileDir = os.path.join(currentPath, 'app', 'views', args.newFile.lower() + '.py')
+    with open(fileDir,'w') as af:
+        af.write('from flask.views import MethodView \n')
+        af.write('from flask import render_template \n')
+        af.write('\n')
+        af.write('class %s(MethodView): \n' % args.newFile.capitalize())
+        af.write('\n')
+        af.write('    def get(self): \n')
+        if api:
+            af.write('        return "%s" \n' % args.newFile.lower())
+        else:
+            af.write('        return render_template("%s.html") \n' % args.newFile.lower())
+        method_list = ['post', 'put', 'delete']
+        for method in method_list:
+            af.write('\n')
+            af.write('    def %s(self): \n' % method)
+            af.write('        pass \n')
+    initDir = os.path.join(currentPath, 'app', 'views', '__init__.py')
+    with open(initDir,'a') as af:
+        af.write('\nfrom %s import * \n' % args.newFile.lower())
+    htmlDir = False
+    if not api:
+        htmlDir = make_template()
+    routesDir = os.path.join(currentPath, 'config', 'routes.blz')
+    with open(routesDir,'a') as af:
+        af.write("\n/%s,%s,%s" % (args.newFile.lower(), 
+                                  args.newFile.capitalize(), 
+                                  args.newFile.lower()))
     print fileDir
     print initDir
-    print htmlDir
-elif args.blow == "blow" and args.option == 'model':
+    if htmlDir:
+        print htmlDir
+    print routesDir
+
+
+def make_model():
     fileDir = os.path.join(currentPath, 'app', 'models', args.newFile.lower() + '.py')
     with open(fileDir,'w') as af:
         af.write('from manage import app, db \n')
@@ -55,10 +71,11 @@ elif args.blow == "blow" and args.option == 'model':
     initDir = os.path.join(currentPath, 'app', 'models', '__init__.py')
     with open(initDir,'a') as af:
         af.write('\nfrom %s import * \n' % args.newFile.lower())
-    print "Updated Directories"
     print fileDir
     print initDir
-elif args.blow == "blow" and args.option == 'login':
+
+
+def make_login():
     fileDir = os.path.join(currentPath, 'app', '__init__.py')
     with open(fileDir,'a') as af:
         af.write('\n')
@@ -94,8 +111,23 @@ elif args.blow == "blow" and args.option == 'login':
     viewDir = os.path.join(currentPath, 'app', 'views', '__init__.py')
     with open(viewDir,'a') as af:
         af.write('\nfrom user import * \n')
-    print "Updated Directories"
     print fileDir
     print routesDir
     print modelDir
     print viewDir
+
+
+print("Updated Directories")
+
+if args.blow == "blow" and args.option == 'view':
+    make_view()
+elif args.blow == "blow" and args.option == 'model':
+    make_model()
+elif args.blow == 'blow' and args.option == 'api':
+    make_view(api=True)
+    make_model()
+elif args.blow == 'blow' and args.option == 'scaffold':
+    make_view()
+    make_model()
+elif args.blow == "blow" and args.option == 'login':
+    make_login()
