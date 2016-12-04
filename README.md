@@ -85,7 +85,7 @@ you need to update route.py for routing
 * *Create model example*:
 
 ```
-$ python glassblower blow model whatever
+$ python glassblower.py blow model whatever
 
 this command make:
 app/models/whatever.py
@@ -103,7 +103,8 @@ $ python manage.py db upgrade
 
 ```
 #In GlassBlower is very simple make a login
-$ python glassblower blow login
+
+$ python glassblower.py blow login
 
 #you need to do
 
