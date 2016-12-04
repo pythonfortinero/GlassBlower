@@ -72,12 +72,11 @@ elif args.blow == "blow" and args.option == 'login':
         af.write('def load_user(id):\n')
         af.write('    return User.query.get(int(id))\n')
 
-    routesDir = os.path.join(currentPath, 'config', 'routes.py')
+    routesDir = os.path.join(currentPath, 'config', 'routes.blz')
     with open(routesDir,'a') as af:
-        af.write("\nuser_url = [default.Pluggable('/register',UserRegister,'register'),")
-        af.write("\n    default.Pluggable('/login',UserLogin,'login'),")
-        af.write("\n    default.Pluggable('/logout', UserLogout,'logout')]")
-        af.write("\nurls = urls + user_url")
+        af.write("\n/register,UserRegister,register")
+        af.write("\n/login,UserLogin,login")
+        af.write("\n/logout,UserLogout,logout")
     import shutil
     shutil.copy2(os.path.join(currentPath, 'utilities', 'user', 'models','user.py'),
                  os.path.join(currentPath, 'app','models','user.py'))
