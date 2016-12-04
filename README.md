@@ -27,73 +27,88 @@ $ python manage.py db upgrade
 $ python manage.py runserver 
 ```
 
-1. #config database and enviroment work
+1. Config database and enviroment work
 config/config.py 
  
-2. #add the routes in:
+2. Add the routes in:
 config/routes.py 
 
-Structure Tree of GlassBlower:
+#Structure Tree of GlassBlower:
 
+```
 glassBlower/
 
-├── app <br />
-│   ├── forms <br />
-│   ├── models <br />
-│   ├── restful <br />
-│   ├── templates <br />
-│   │   ├── about.html <br />
-│   │   ├── base.html <br />
-│   │   └── index.html <br />
-│   └── views <br />
-│       ├── about.py <br />
-│       └── index.py <br />
-├── config <br />
-│   ├── config.py <br />
-│   └── routes.py <br />
-├── glassblower.py <br />
-├── manage.py <br />
-├── requirements.txt <br />
-├── static <br />
-│   ├── images <br />
-│   │   └── flask.png <br />
-│   ├── javascripts <br />
-│   │   └── bootstrap.min.js <br />
-│   └── stylesheets <br />
-│       └── bootstrap.min.css <br />
-├── test <br />
-└── wsgi.py <br />
+├── app 
+│   ├── forms 
+│   ├── models 
+│   ├── templates 
+│   │   └── index.html 
+│   └── views 
+│       └── index.py 
+├── config 
+│   ├── config.py 
+│   └── routes.py 
+├── glassblower.py 
+├── manage.py 
+├── requirements.txt 
+├── static 
+│   ├── images 
+│   │   └── images.png 
+│   ├── javascripts 
+│   │   └── bootstrap.min.js 
+│   └── stylesheets 
+│       └── bootstrap.min.css 
+├── test 
+└── wsgi.py 
+```
 
 
+#GlassBlower File creator:
 
-GlassBlower File creator:
+You can create views, models and login
 
-You can create views and models
+* Create view example:
 
-Create view example:
-
+```
 $ python glassblower.py blow view whatever
 
- this command make:
+this command make:
   app/views/whatever.py
   app/templates/whatever.html
 
- and modify: 
+and modify: 
   app/views/__init__.py
 
- you need to update route.py for routing
+you need to update route.py for routing
+```
 
-Create model example:
+* Create model example:
 
+```
 $ python glassblower blow model whatever
 
- this command make:
-  app/models/whatever.py
+this command make:
+app/models/whatever.py
  
- and modify:
-  app/models/__init__.py
+and modify:
+app/models/__init__.py
 
- you need to do
+you need to do
 
- $ python manage.py db migrate
- $ python manage.py db upgrade
+$ python manage.py db migrate
+$ python manage.py db upgrade
+```
+
+* Create login example:
+
+```
+#In GlassBlower is very simple make a login
+$ python glassblower blow login
+
+#you need to do
+
+$ python manage.py db migrate
+$ python manage.py db upgrade
+```
+
+
