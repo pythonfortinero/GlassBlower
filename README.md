@@ -7,7 +7,7 @@ GlassBlower is the implementation of a similar structure to Rails
 
 Fist steps:
 
-'''
+```
 $ virtualenv venv  #in your current directory, to generate de virtual envairoment
 
 $ source venv/bin.activate
@@ -25,7 +25,7 @@ $ python manage.py db upgrade
 
 #for run the server, is like django manage.py
 $ python manage.py runserver 
-'''
+```
 
 1. #config database and enviroment work
 config/config.py 
